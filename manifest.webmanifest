@@ -1,0 +1,12 @@
+{
+  "name": "富士通 持株メモ",
+  "short_name": "持株メモ",
+  "description": "富士通持株会の保有株数と時価総額を管理する個人用Webアプリ",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4efed",
+  "theme_color": "#8f0010",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
