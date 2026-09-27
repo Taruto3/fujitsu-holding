@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const endpoint = "https://query1.finance.yahoo.com/v8/finance/chart/6702.T?interval=1d&range=1mo";
 
@@ -44,4 +44,10 @@ const quote = {
 
 await mkdir("data", { recursive: true });
 await writeFile("data/quote.json", `${JSON.stringify(quote, null, 2)}\n`);
+let history = [];
+try { history = JSON.parse(await readFile("data/history.json", "utf8")); } catch {}
+history = history.filter(item => item.date !== quote.date);
+history.push({ date: quote.date, close: quote.close });
+history.sort((a, b) => a.date.localeCompare(b.date));
+await writeFile("data/history.json", `${JSON.stringify(history.slice(-400), null, 2)}\n`);
 console.log(`Updated ${quote.symbol}: ${quote.date} close ${quote.close} ${quote.currency}`);

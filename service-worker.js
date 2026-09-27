@@ -1,5 +1,5 @@
 const CACHE = "fujitsu-holding-v1";
-const ASSETS = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest", "./icon.svg"];
+const ASSETS = ["./", "./index.html", "./styles.css", "./app-v2.js", "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
@@ -14,5 +14,6 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   if (new URL(event.request.url).pathname.endsWith("/data/quote.json")) return;
+  if (new URL(event.request.url).pathname.endsWith("/data/history.json")) return;
   event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request)));
 });

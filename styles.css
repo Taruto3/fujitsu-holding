@@ -41,6 +41,7 @@ button, input { font: inherit; }
 h1, h2, p { margin-top: 0; }
 h1 { margin-bottom: 0; font-size: clamp(24px, 7vw, 34px); letter-spacing: -.04em; }
 h2 { margin-bottom: 0; font-size: 20px; }
+h3 { margin: 0; font-size: 17px; }
 
 .ticker {
   padding: 8px 10px;
@@ -103,6 +104,9 @@ label small { margin-left: 5px; color: var(--muted); font-size: 11px; font-weigh
 .input-wrap input { min-width: 0; flex: 1; padding: 15px 4px 15px 15px; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 18px; font-weight: 700; }
 .input-wrap input[readonly] { color: var(--muted); cursor: default; }
 .input-wrap span { padding: 0 15px; color: var(--muted); font-size: 13px; }
+.plan-divider { margin: 28px 0 4px; padding-top: 24px; border-top: 1px solid var(--line); }
+.field-grid { display: grid; grid-template-columns: 1fr; gap: 0 14px; }
+.plan-preview { min-height: 1.3em; margin: 12px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 
 button {
   width: 100%;
@@ -126,6 +130,7 @@ button:hover { background: #332f30; }
 @media (min-width: 600px) {
   .shell { padding-left: 24px; padding-right: 24px; }
   .value-card, .panel, .note { padding: 30px; }
+  .field-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

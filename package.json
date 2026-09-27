@@ -7,7 +7,7 @@
     "start": "node --run serve",
     "serve": "npx --yes serve .",
     "update-quote": "node scripts/update-quote.mjs",
-    "check": "node --check app.js && node --check service-worker.js && node --check scripts/update-quote.mjs"
+    "check": "node --check app-v2.js && node --check service-worker.js && node --check scripts/update-quote.mjs"
   },
   "engines": { "node": ">=18" }
 }

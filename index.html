@@ -47,7 +47,7 @@
       </div>
 
       <form id="holdingForm">
-        <label for="shares">保有株数 <small>小数株にも対応</small></label>
+        <label for="shares">現在の保有株数 <small>自動積立開始前の株数</small></label>
         <div class="input-wrap">
           <input id="shares" name="shares" type="text" inputmode="decimal" autocomplete="off" placeholder="例 123.456">
           <span>株</span>
@@ -59,6 +59,42 @@
           <span>円</span>
         </div>
 
+        <div class="plan-divider">
+          <p class="eyebrow">MONTHLY PLAN</p>
+          <h3>毎月の自動積立</h3>
+        </div>
+
+        <div class="field-grid">
+          <div>
+            <label for="units">毎月の口数 <small>1口=1,000円</small></label>
+            <div class="input-wrap">
+              <input id="units" name="units" type="text" inputmode="numeric" autocomplete="off" placeholder="例 10">
+              <span>口</span>
+            </div>
+          </div>
+          <div>
+            <label for="incentiveRate">奨励金率 <small>公開上限15%</small></label>
+            <div class="input-wrap">
+              <input id="incentiveRate" name="incentiveRate" type="text" inputmode="decimal" autocomplete="off" value="15">
+              <span>%</span>
+            </div>
+          </div>
+          <div>
+            <label for="startMonth">開始月</label>
+            <div class="input-wrap">
+              <input id="startMonth" name="startMonth" type="month">
+            </div>
+          </div>
+          <div>
+            <label for="purchaseDay">毎月の反映日 <small>要社内確認</small></label>
+            <div class="input-wrap">
+              <input id="purchaseDay" name="purchaseDay" type="text" inputmode="numeric" value="25">
+              <span>日</span>
+            </div>
+          </div>
+        </div>
+        <p class="plan-preview" id="planPreview"></p>
+
         <button type="submit">保存して計算</button>
         <p class="error" id="error" role="alert"></p>
       </form>
@@ -68,10 +104,11 @@
       <h2>このアプリについて</h2>
       <p>入力した内容は、このブラウザの中だけに保存されます。外部へ送信されません。</p>
       <p>終値はページを開いた時に自動取得します。取得できない場合は、最後に取得できた終値を表示します。</p>
+      <p>毎月の取得株数は、設定した反映日以降の最初の終値を使った概算です。実際の買付日・買付単価・奨励金率は社内のFKABU明細をご確認ください。</p>
       <p>株価・時価総額は参考値です。取引判断には証券会社の公式情報をご確認ください。</p>
     </section>
   </main>
 
-  <script src="app.js" defer></script>
+  <script src="app-v2.js" defer></script>
 </body>
 </html>
